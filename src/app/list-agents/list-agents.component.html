@@ -1,0 +1,88 @@
+
+<header>
+
+    <!-- Sidebar -->
+    <nav-bar></nav-bar>
+    <!-- Sidebar -->
+
+    <!-- header -->
+   
+    <!-- header -->
+
+</header>
+  <!--Main Navigation-->
+
+  <!--Main layout-->
+  <main style="margin-top: 40px;" class="main mw-100">
+    <div class="container pt-4 mainContainer mw-100">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!-- Team -->
+<section id="team" class="pb-5 mw-100">
+    <div class="container mw-100">
+      <form class="search-form" role="search">
+          <input type="search" placeholder="search agent" class="form-group col-sm-5 flex-column d-flex search-input" id="searchBar">
+      </form>
+        <div class="row mw-100">
+            <!-- Team member -->
+            <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let agent of agents">
+                <div class="image-flip" (click)="goToAgentDetails(agent)" >
+                    <div class="mainflip flip-0">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" src="./assets/admin2.png" alt="card image"></p>
+                                    <h4 class="card-title">{{agent.nom +" "+ agent.prenom}}</h4>
+                                    
+                                    <p class="text-left">
+                                       <span class="detailsSpan"> email :</span> {{agent.email}} <br/>
+                                       <span class="detailsSpan"> phone number :</span> {{agent.numTel}} <br/>
+                                       <span class="detailsSpan"> date of birth :</span> {{agent.dateNaissance}} <br/>
+                                       <span class="detailsSpan"> home adress :</span> {{agent.adresse}} <br/>
+                                    </p>
+                                       
+                                           
+                                  
+                                 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 class="card-title">{{agent.nom +" "+ agent.prenom}}</h4>
+                                    <p class="text-left">
+                                        <span class="detailsSpan"> Commerce registry N. :</span> {{agent.numMatriculation}} <br/>
+                                        <span class="detailsSpan"> patent number :</span> {{agent.numPattente}} <br/>
+                                        <span class="detailsSpan"> identity justification :</span> {{agent.pieceIdentite}} <br/>
+                                        <span class="detailsSpan"> Id card number :</span> {{agent.numPieceIdentite}} <br/>
+                                     </p>                              
+                                
+                                
+                                <ul class="list-inline mt-5">
+                                        <li class="list-inline-item">
+                                            <a class="social-icon text-xs-center border border-success p-2 rounded" id="expendbutton" target="_blank">
+                                                Expend
+                                            </a>
+                                        </li>
+                                       
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+</section>
+<!-- Team -->
+    </div>
+    
+  </main>
+  <!--Main layout-->
+
