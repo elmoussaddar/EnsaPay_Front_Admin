@@ -6,6 +6,9 @@ import { Agent } from '../Interfaces(Modules)/Agent';
 const httpOptions = {
 	headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
+  const httpOptionsFile = {
+	headers: new HttpHeaders({ 'Content-Type': 'multipart/form-data ; boundary=---' })
+  };
 
 @Injectable({
   providedIn: 'root'
@@ -59,5 +62,17 @@ export class AdminService {
 }
 public deleteAgent(agentId: number): Observable<any> {
   return this.http.delete(`${this.adminUrl}/deleteAgent/${agentId}`);
+}
+
+public saveAgentFile(
+	file:File,
+	owneruid: string,
+	description:string,
+	
+){
+
+	return this.http.post<any>("http://localhost:8080/file/uploadAgentFile",{
+		file,owneruid,description
+	},httpOptionsFile);
 }
 }

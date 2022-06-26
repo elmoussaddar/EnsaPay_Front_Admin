@@ -1,3 +1,4 @@
+import { AddFileRequest } from './../Interfaces(Modules)/AddFileRequest';
 import { HttpClient } from '@angular/common/http';
 import { Agent } from '../Interfaces(Modules)/Agent';
 import { Component, Inject, OnInit } from '@angular/core';
@@ -29,6 +30,21 @@ export class AgentAddFormComponent implements OnInit {
     patentNumber:"",
     commerceregistrySerialNumber:"",
   };
+
+  addfileRequest:AddFileRequest={
+    file_id:0,
+    name:"",
+    owneruid:"",
+    description:"",
+    type:"",
+    file:null,
+  }
+
+  file:File;
+  owneruid:string;
+  description:string;
+
+
   IdentTypes:string[] = ["C.I.N","Passport","Driver License"];
   errorMessage:String;
 
@@ -66,7 +82,21 @@ export class AgentAddFormComponent implements OnInit {
     this.agent.homeAddress,
     ).subscribe({
       next: data => {
-        console.log("agent saved successfully")
+        console.log("agent saved successfully");
+        this.owneruid=data.username;
+        console.log(data.username);
+
+        this.adminService.saveAgentFile(this.file,this.owneruid,this.description).subscribe({
+          next: data => {
+            console.log("agent file saved successfully");
+          },
+          error: err => {
+            this.errorMessage = err.error.message;
+            console.log("erreur while uploading file")
+           
+          }
+         
+        });
       },
       error: err => {
         this.errorMessage = err.error.message;
@@ -74,8 +104,12 @@ export class AgentAddFormComponent implements OnInit {
       }
      
     });
+   
     
+    
+
    window.location.reload();
+   
   }
 }
   

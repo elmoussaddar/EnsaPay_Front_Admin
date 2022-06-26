@@ -1,9 +1,8 @@
 
-import { File } from './File';
 
 export interface Agent{
     id_agent: Number,
-        username:String,
+        username:string,
         nom: String,
         prenom: String,
         pieceIdentite: String,
@@ -17,6 +16,6 @@ export interface Agent{
         numPattente: String,
         firstAuth: Boolean,
         usersApp: [],
-        agentFiles: File[],
+       
         role: String
 }
