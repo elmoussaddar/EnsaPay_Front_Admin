@@ -86,17 +86,7 @@ export class AgentAddFormComponent implements OnInit {
         this.owneruid=data.username;
         console.log(data.username);
 
-        this.adminService.saveAgentFile(this.file,this.owneruid,this.description).subscribe({
-          next: data => {
-            console.log("agent file saved successfully");
-          },
-          error: err => {
-            this.errorMessage = err.error.message;
-            console.log("erreur while uploading file")
-           
-          }
-         
-        });
+      
       },
       error: err => {
         this.errorMessage = err.error.message;
@@ -104,11 +94,24 @@ export class AgentAddFormComponent implements OnInit {
       }
      
     });
-   
-    
-    
 
-   window.location.reload();
+    /*
+    this.adminService.saveAgentFile(this.file,this.owneruid,this.description).subscribe({
+      next: data => {
+        console.log("agent file saved successfully");
+      },
+      error: err => {
+        this.errorMessage = err.error.message;
+        console.log("erreur while uploading file")
+       
+      }
+     
+    });
+    
+    /*
+
+
+   window.location.reload();*/
    
   }
 }

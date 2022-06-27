@@ -18,7 +18,7 @@ export class AdminService {
   private adminUrl: string;
 
 	constructor(private http: HttpClient) {
-		this.adminUrl = "http://localhost:8080/api/auth/";
+		this.adminUrl = "https://ensapay-backend-springboot.herokuapp.com/api/auth/";
 	}
 
   public saveAgent(
@@ -55,7 +55,7 @@ export class AdminService {
 
   public findAllAgents(): Observable<any[]> {
 		return this.http.get<any[]>(
-			"http://localhost:8080/adminController/listAgents"
+			"https://ensapay-backend-springboot.herokuapp.com/adminController/listAgents"
 				);
 
 
@@ -71,7 +71,7 @@ public saveAgentFile(
 	
 ){
 
-	return this.http.post<any>("http://localhost:8080/file/uploadAgentFile",{
+	return this.http.post<any>("https://ensapay-backend-springboot.herokuapp.com/file/uploadAgentFile",{
 		file,owneruid,description
 	},httpOptionsFile);
 }
